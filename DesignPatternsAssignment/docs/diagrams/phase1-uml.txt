@@ -1,0 +1,11 @@
+﻿Cart
+   |
+   v
+IndirimFactory
+   |
+   +---- OgrenciIndirimi
+   +---- PremiumIndirimi
+   +---- YilbasiIndirimi
+   +---- OgretmenIndirimi
+
+IIndirim
