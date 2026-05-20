@@ -1,4 +1,7 @@
-﻿namespace DesignPatternsAssignment.src
+﻿
+using DesignPatternsAssignment.src.Indirimler;
+
+namespace DesignPatternsAssignment.src
 {
     public class Cart
     {
@@ -31,35 +34,22 @@
         public double IndirimHesapla(string indirimTuru)
         {
             double toplamFiyat = ToplamFiyatHesapla();
-            double indirimMiktari = 0;
 
+            IndirimFactory factory = new IndirimFactory();
 
-            if (indirimTuru == "ogrenci")
+            IIndirim indirim = factory.IndirimOlustur(indirimTuru);
+
+            if (indirim != null)
             {
-                indirimMiktari = toplamFiyat * 10 / 100;
+                double indirimMiktari =
+                    indirim.Hesapla(toplamFiyat);
+
+                return toplamFiyat - indirimMiktari;
             }
 
-            else if (indirimTuru == "yilbasi")
-            {
-                indirimMiktari = toplamFiyat * 20 / 100;
-            }
+            Console.WriteLine("İndirim bulunamadı");
 
-            else if (indirimTuru == "premium")
-            {
-                indirimMiktari = toplamFiyat * 15 / 100;
-            }
-
-            else if (indirimTuru == "ogretmen")
-            {
-                indirimMiktari = toplamFiyat * 5 / 100;
-            }
-
-            else
-            {
-                Console.WriteLine("İndirim bulunamadı");
-            }
-
-            return toplamFiyat - indirimMiktari;
+            return toplamFiyat;
         }
     }
 }
