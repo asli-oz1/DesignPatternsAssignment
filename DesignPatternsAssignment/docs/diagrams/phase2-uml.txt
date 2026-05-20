@@ -1,0 +1,15 @@
+﻿AlisverisFacade
+      |
+      v
+     Cart
+      |
+      v
+IndirimFactory
+      |
+      +---- OgrenciIndirimi
+      +---- PremiumIndirimi
+
+KuponDecorator
+      |
+      v
+İndirimli Fiyat
