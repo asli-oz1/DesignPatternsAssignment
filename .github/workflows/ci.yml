@@ -17,7 +17,7 @@ jobs:
         dotnet-version: 8.0.x
 
     - name: Restore
-      run: dotnet restore
+      run: dotnet restore DesignPatternsAssignment/DesignPatternsAssignment.sln
 
     - name: Build
-      run: dotnet build
+      run: dotnet build DesignPatternsAssignment/DesignPatternsAssignment.sln
