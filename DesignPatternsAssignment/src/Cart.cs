@@ -1,4 +1,5 @@
 ﻿
+using DesignPatternsAssignment.src.Bildirim;
 using DesignPatternsAssignment.src.Indirimler;
 
 namespace DesignPatternsAssignment.src
@@ -11,6 +12,11 @@ namespace DesignPatternsAssignment.src
 
         public void UrunEkle(string urunAdi, double fiyat)
         {
+            SepetBildirim bildirim =
+new SepetBildirim();
+
+            bildirim.BildirimGonder();
+
             urunler.Add(urunAdi);
             fiyatlar.Add(fiyat);
 
